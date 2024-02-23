@@ -1,0 +1,36 @@
+βηματα που γινονται κατα την δρομολογηση:
+
+USER A THAT STARTS THE CHALLENGE
+USER A does:
+1 Button challenge on press -> method call(challenge), --> sentdata() with tag :playersearch -->
+
+		Server does:
+				method call(SearchPlayerandNotify) with parameter the name of the user to be called upon for game
+				method SearchPlayerandNotify body{
+					retrieves the value and the key of the user that are stored in a hashmap ,
+					alse retrieves current clients USERNAME also to be displayed to the user as info
+					ONCE it retrieves then:
+					
+					!!!	the readLine() blocking method is called for that threat in order !!!
+					
+it prints to the buffer( current threat) a requset with a tag :playerfound -->
+method call (playerfound) that notifys the user and waits for a simple yes or no input
+basically the server is saying back to the client that the player exists in the database
+and a option dialog appears so that the user can confirm the action.
+
+				IF the action = YES then: a new printwritter (in server) is called and prints to the outputStream of the user that the  A is calling 
+						
+				}
+USER B THAT Recieves the challenge		
+		USER B does:
+				method call(challenge) --> Option dialog for input YES OR NO 
+				IF input  = YES then:
+								a new request with tag :findchallenger is sent to the Server with USERNAME that we said earlier,
+								
+								server does:
+											method call(findChallenger) and retrieves the the Socket from the hashmap
+											then a request tag:challengeAccepted is made and sent to a new printwriter with the socket of the client A
+USER A does:
+	method call(challengeAccepted) and simple displays a msg that the A accepted the request
+											
+				
